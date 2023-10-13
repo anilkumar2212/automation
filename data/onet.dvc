@@ -1,6 +1,6 @@
 outs:
-- md5: d751713988987e9331980363e24189ce.dir
-  size: 0
-  nfiles: 0
+- md5: ff002493140110698abbdf033632f8dc.dir
+  size: 7543
+  nfiles: 1
   hash: md5
   path: onet
