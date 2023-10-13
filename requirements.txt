@@ -1,0 +1,5 @@
+dvc
+ipykernel
+flask
+werkzeug
+openpyxl

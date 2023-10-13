@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .page-header {
+            text-align: center;
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            font-size: 36px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .upload-form {
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: 20px;
+        }
+
+        .upload-form h2 {
+            margin-right: 10px;
+            font-size: 24px;
+            color: #333333;
+        }
+
+        .upload-form label,
+        .upload-form input[type="file"],
+        .upload-form input[type="submit"] {
+            margin: 5px;
+        }
+
+        .file-chosen {
+            color: red;
+        }
+
+        .submit-button {
+            background-color: green;
+            color: white;
+        }
+
+        .notification {
+            margin-left: 10px;
+            font-size: 16px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        Ochat Automation
+    </div>
+
+    <div style="margin-top: 20px;"></div>
+
+    <script>
+        function onFileChosen(formId) {
+            var fileInput = document.getElementById(formId + '-file');
+            var submitButton = document.getElementById(formId + '-submit');
+            var fileName = fileInput.value;
+            
+            if (fileInput.files.length > 0 && /\.(xls|xlsx)$/i.test(fileName)) {
+                fileInput.classList.add("file-chosen");
+                submitButton.classList.add("submit-button");
+            } else {
+                fileInput.classList.remove("file-chosen");
+                submitButton.classList.remove("submit-button");
+            }
+        }
+
+        function handleFormSubmit(formId) {
+            var form = document.getElementById(formId + '-form');
+            var formData = new FormData(form);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", form.action, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.message) {
+                        displayNotification(formId, response.message);
+                        if (response.message === "File uploaded to Otrim") {
+                            setTimeout(function () {
+                                window.location.href = "/"; // Redirect back to the index.html page
+                            }, 2000); // Delay for 2 seconds before the redirect (you can adjust the delay)
+                        }
+                    }
+                }
+            };
+            xhr.send(formData);
+        }
+    </script>
+    
+    <div class="upload-form" id="otrim-upload-form">
+        <h2>Otrim File Upload</h2>
+        <form id="otrim-form" action="/upload_otrim" method="post" enctype="multipart/form-data">
+            <label for="otrim-file" class="file-chosen">Choose Excel File:</label>
+            <input type="file" name="file" id="otrim-file" accept=".xls, .xlsx" required onchange="onFileChosen('otrim')">
+            <input type="submit" value="Upload To Otrim" id="otrim-submit" onclick="handleFormSubmit('otrim')">
+            <span id="otrim-notification" class="notification">{{ otrim_message }}</span>
+        </form>
+    </div>
+    
+    <div class="upload-form" id="omail-upload-form">
+        <h2>Omail File Upload</h2>
+        <form id="omail-form" action="/upload_omail" method="post" enctype="multipart/form-data">
+            <label for="omail-file" class="file-chosen">Choose Excel File:</label>
+            <input type="file" name="file" id="omail-file" accept=".xls, .xlsx" required onchange="onFileChosen('omail')">
+            <input type="submit" value="Upload To Omail" id="omail-submit" onclick="handleFormSubmit('omail')">
+            <span id="omail-notification" class="notification">{{ omail_message }}</span>
+        </form>
+    </div>
+    
+    <div class="upload-form" id="onet-upload-form">
+        <h2>Onet File Upload</h2>
+        <form id="onet-form" action="/upload_onet" method="post" enctype="multipart/form-data">
+            <label for="onet-file" class="file-chosen">Choose Excel File:</label>
+            <input type="file" name="file" id="onet-file" accept=".xls, .xlsx" required onchange="onFileChosen('onet')">
+            <input type="submit" value="Upload To Onet" id="onet-submit" onclick="handleFormSubmit('onet')">
+            <span id="onet-notification" class="notification">{{ onet_message }}</span>
+        </form>
+    </div>
+</body>
+</html>
