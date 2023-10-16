@@ -7,7 +7,7 @@ app = Flask(__name__)
 def dvc_remote(product_name,comments):
     dvc_commands = [
     f'dvc add data/{product_name}',
-    f'git add data/{product_name}.dvc',
+    f'git add data/{product_name}.dvc data/.gitignore',
     'git add .dvc/config',
     f'git commit -m "{comments}"',
     'dvc push',
