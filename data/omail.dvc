@@ -1,0 +1,6 @@
+outs:
+- md5: a647e3c7cd4d66d8366d33d9a0561d6c.dir
+  size: 8031
+  nfiles: 1
+  hash: md5
+  path: omail
