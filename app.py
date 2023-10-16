@@ -14,11 +14,11 @@ def upload_otrim():
         file = request.files['file']
         if file.filename != '':
             file.save(os.path.join("data/otrim", "data.xlsx"))
-            
+            print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
             command = f"python automation.py otrim version added otrim"
             subprocess.run(command, shell=True)
             
-            return render_template("index2.html", otrim_message="File is uploaded to Otrim")
+            return render_template("index.html", otrim_message="File is uploaded to Otrim")
     return render_template("index2.html", message="")
 
 
@@ -32,7 +32,7 @@ def upload_omail():
             command = f"python automation.py omail version added omail"
             subprocess.run(command, shell=True)
             
-            return render_template("index2.html", omail_message="File is uploaded to Omail")
+            return render_template("index.html", omail_message="File is uploaded to Omail")
     return render_template("index2.html", message="")
 
 
@@ -46,7 +46,7 @@ def upload_onet():
             command = f"python automation.py onet version added onet"
             subprocess.run(command, shell=True)
             
-            return render_template("index2.html", onet_message="File is uploaded to Onet")
+            return render_template("index.html", onet_message="File is uploaded to Onet")
     return render_template("index2.html", message="")
 
 

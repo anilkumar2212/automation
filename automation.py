@@ -4,10 +4,13 @@ import subprocess
 comments = " ".join(sys.argv[1:-1])
 product_name = sys.argv[-1]
 
+print("****************************************************")
+print(f'git commit -m "{comments}"')
+
 bash_commands = [
     f'dvc add data/{product_name}',
     f'git add data/{product_name}.dvc',
-    f'git commit -m {comments}',
+    f'git commit -m "{comments}"',
     'dvc push',
     'git push'
 ]
