@@ -24,6 +24,8 @@ dvc config core.autostage true
 # dvc remote add -d myremote s3://<bucket>/<key>
 dvc remote add -d myremote s3://chatbot-bkt/dvc/
 
+git add .dvc/config
+
 # set aws credentils in command prompt
 set AWS_ACCESS_KEY_ID=
 set AWS_SECRET_ACCESS_KEY=
