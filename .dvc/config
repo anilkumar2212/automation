@@ -1,4 +1,0 @@
-[core]
-    remote = datadvc
-['remote "datadvc"']
-    url = s3://chatbot-bkt/dvc/
