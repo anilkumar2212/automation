@@ -22,7 +22,6 @@ def homePage():
 @app.route('/upload_otrim', methods=['POST'])
 def upload_otrim():
     if request.method == 'POST':
-        print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
         if 'file' in request.files:
             file = request.files['file']
             if file.filename != '':
@@ -36,7 +35,6 @@ def upload_otrim():
 @app.route('/upload_omail', methods=['POST'])
 def upload_omail():
     if request.method == 'POST':
-        print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
         if 'file' in request.files:
             file = request.files['file']
             if file.filename != '':
