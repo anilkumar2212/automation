@@ -3,3 +3,5 @@ ipykernel
 flask
 werkzeug
 openpyxl
+pandas
+rasa

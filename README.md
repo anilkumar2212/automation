@@ -8,10 +8,10 @@ dvc init
 
 # add dvc files
 
-dvc add data/omail data/onet data/otrim
+dvc add data/omail data/onet data/otrim models/omail models/onet models/otrim
 
 # To track the changes with git, run:
-git add data/omail.dvc data/onet.dvc data/otrim.dvc data/.gitignore 
+git add data/omail.dvc data/onet.dvc data/otrim.dvc data/.gitignore models/otrim.dvc models/onet.dvc models/omail.dvc models/.gitignore
 
 # To enable auto staging, run:
 dvc config core.autostage true

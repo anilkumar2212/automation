@@ -42,8 +42,6 @@
             margin: 3px;
         }
 
-
-
         .file-chosen {
             color: red;
         }
@@ -58,6 +56,9 @@
             font-size: 16px;
             color: green;
         }
+        .button-separator {
+            height: 10px;
+        }
     </style>
 </head>
 <body>
@@ -66,41 +67,66 @@
     </div>
 
     <div style="margin-top: 20px;"></div>
-
     <div class="upload-form" id="otrim-upload-form">
         <h2>Otrim</h2>
-        <form id="otrim-form" action="/upload_otrim" method="post" enctype="multipart/form-data">
-            <label for="otrim-file" class="file-chosen">Choose Excel File:</label>
-            <input type="file" name="file" id="otrim-file" accept=".xls, .xlsx" required>
-            <label for="otrim-comments">Comments:</label>
-            <input type="text" name="comments" id="otrim-comments" required>
-            <input type="submit" value="Upload To Otrim" id="otrim-submit">
-            <span id="otrim-notification" class="notification">{{ otrim_message }}</span>
-        </form>
+        <div style="width: 80%; float: left; border-right: 1px solid #ccc; padding-right: 10px; height: 100%;">
+            <form id="otrim-form" action="/upload_otrim" method="post" enctype="multipart/form-data">
+                <label for="otrim-file" class="file-chosen">Choose Excel File:</label>
+                <input type="file" name="file" id="otrim-file" accept=".xls, .xlsx" required>
+                <label for="otrim-comments">Comments:</label>
+                <input type="text" name="comments" id="otrim-comments" required>
+                <input type="submit" name="upload" value="Upload To Otrim" id="otrim-submit">
+                <span id="otrim-notification" class="notification">{{ otrim_message }}</span>
+            </form>
+        </div>
+        <div style="width: 20%; float: left; padding-left: 10px;">
+            <form id="build-otrim-model" action="/build_otrim_model" method="post">
+                <input type="submit" name="build_otrim_model" value="Build OTrim Model" id="build-otrim-model">
+            </form>
+        </div>
     </div>
-    
-    <div class="upload-form" id="omail-upload-form">
+
+
+
+    <div class="upload-form" id="otrim-upload-form">
         <h2>Omail</h2>
-        <form id="omail-form" action="/upload_omail" method="post" enctype="multipart/form-data">
-            <label for="omail-file" class="file-chosen">Choose Excel File:</label>
-            <input type="file" name="file" id="omail-file" accept=".xls, .xlsx" required>
-            <label for="omail-comments">Comments:</label>
-            <input type="text" name="comments" id="omail-comments" required>
-            <input type="submit" value="Upload To Omail" id="omail-submit">
-            <span id="omail-notification" class="notification">{{ omail_message }}</span>
-        </form>
+        <div style="width: 80%; float: left; border-right: 1px solid #ccc; padding-right: 10px; height: 100%;">
+            <form id="omail-form" action="/upload_omail" method="post" enctype="multipart/form-data">
+                <label for="omail-file" class="file-chosen">Choose Excel File:</label>
+                <input type="file" name="file" id="omail-file" accept=".xls, .xlsx" required>
+                <label for="omail-comments">Comments:</label>
+                <input type="text" name="comments" id="omail-comments" required>
+                <input type="submit" name="upload" value="Upload To Omail" id="omail-submit">
+                <span id="otrim-notification" class="notification">{{ omail_message }}</span>
+            </form>
+        </div>
+        <div style="width: 20%; float: left; padding-left: 10px;">
+            <form id="build-omail-model" action="/build_omail_model" method="post">
+                <input type="submit" name="build_omail_model" value="Build OMail Model" id="build-omail-model">
+            </form>
+        </div>
     </div>
-    
+
+
+
     <div class="upload-form" id="onet-upload-form">
         <h2>Onet</h2>
-        <form id="onet-form" action="/upload_onet" method="post" enctype="multipart/form-data">
-            <label for="onet-file" class="file-chosen">Choose Excel File:</label>
-            <input type="file" name="file" id="onet-file" accept=".xls, .xlsx" required>
-            <label for="onet-comments">Comments:</label>
-            <input type="text" name="comments" id="onet-comments" required>
-            <input type="submit" value="Upload To Onet" id="onet-submit">
-            <span id="onet-notification" class="notification">{{ onet_message }}</span>
-        </form>
+        <div style="width: 80%; float: left; border-right: 1px solid #ccc; padding-right: 10px; height: 100%;">
+            <form id="onet-form" action="/upload_onet" method="post" enctype="multipart/form-data">
+                <label for="onet-file" class="file-chosen">Choose Excel File:</label>
+                <input type="file" name="file" id="onet-file" accept=".xls, .xlsx" required>
+                <label for="onet-comments">Comments:</label>
+                <input type="text" name="comments" id="onet-comments" required>
+                <input type="submit" name="upload" value="Upload To Onet" id="onet-submit">
+                <span id="onet-notification" class="notification">{{ onet_message }}</span>
+            </form>
+        </div>
+        <div style="width: 20%; float: left; padding-left: 10px;">
+            <form id="build-onet-model" action="/build_onet_model" method="post">
+                <input type="submit" name="build_onet_model" value="Build ONet Model" id="build-onet-model">
+            </form>
+        </div>
     </div>
+    
 </body>
 </html>
