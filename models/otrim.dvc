@@ -1,6 +1,6 @@
 outs:
-- md5: d751713988987e9331980363e24189ce.dir
-  size: 0
-  nfiles: 0
+- md5: 5dec21801bc6612a3cf80bea49e97e8a.dir
+  size: 29998384
+  nfiles: 1
   hash: md5
   path: otrim
