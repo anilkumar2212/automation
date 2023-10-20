@@ -21,7 +21,8 @@ def dvc_remote(product_name,comments):
     f'dvc add data/{product_name}',
     f'git add data/{product_name}.dvc data/.gitignore',
     f'git commit -m "{comments}"',
-    'git push'] #'dvc push',
+    'dvc push',
+    'git push'] 
     for cmd in dvc_commands:
         subprocess.run(cmd, shell=True)
 
@@ -31,7 +32,8 @@ def model_dvc_remote(product_name):
     f'dvc add models/{product_name}',
     f'git add models/{product_name}.dvc models/.gitignore',
     f'git commit -m "{product_name}_{formatted_datetime}"',
-    'git push'] #'dvc push',
+    'dvc push',
+    'git push'] 
     for cmd in model_dvc_commands:
         subprocess.run(cmd, shell=True)
 
